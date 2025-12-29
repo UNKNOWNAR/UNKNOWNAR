@@ -33,16 +33,48 @@
 
 <h1 align="center">Selected Projects</h1>
 
-<div align="center">
-  <a href="https://github.com/UNKNOWNAR/Hospital-Management-App"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=Hospital-Management-App&show_icons=true&theme=radical" ></a>
-  <a href="https://github.com/UNKNOWNAR/ResearchBoT-EquityResearchTool"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=ResearchBoT-EquityResearchTool&show_icons=true&theme=radical" ></a>
-  <br>
-  <a href="https://github.com/UNKNOWNAR/Electronics-Store-Q-A-System"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=Electronics-Store-Q-A-System&show_icons=true&theme=radical" ></a>
-  <a href="https://github.com/UNKNOWNAR/LLMQuizer"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=LLMQuizer&show_icons=true&theme=radical" ></a>
-  <br>
-  <a href="https://github.com/UNKNOWNAR/GridX-TicTacToe"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=GridX-TicTacToe&show_icons=true&theme=radical" ></a>
-  <a href="https://github.com/UNKNOWNAR/FlappyBird"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=FlappyBird&show_icons=true&theme=radical" ></a>
-</div>
+<table width="100%">
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://github.com/UNKNOWNAR/Hospital-Management-App">
+        <img width="50%" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-hospital-hospital-flaticons-lineal-color-flat-icons-2.png" alt="Hospital App"><br>
+        <b>🏥 Hospital Management App</b>
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/UNKNOWNAR/ResearchBoT-EquityResearchTool">
+        <img width="50%" src="https://img.icons8.com/color/64/research.png" alt="ResearchBot"><br>
+        <b>📊 ResearchBoT Equity Tool</b>
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/UNKNOWNAR/Electronics-Store-Q-A-System">
+       <img width="50%" src="https://img.icons8.com/fluency/64/shop.png" alt="Store Q&A"><br>
+        <b>🛒 Electronics Store Q&A</b>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://github.com/UNKNOWNAR/LLMQuizer">
+       <img width="50%" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-quiz-online-education-flaticons-lineal-color-flat-icons.png" alt="LLM Quizer"><br>
+        <b>🤖 LLM Quizer</b>
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/UNKNOWNAR/GridX-TicTacToe">
+       <img width="50%" src="https://img.icons8.com/color/64/tic-tac-toe.png" alt="TicTacToe"><br>
+        <b>❌⭕ GridX TicTacToe</b>
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/UNKNOWNAR/FlappyBird">
+        <img width="50%" src="https://img.icons8.com/color/64/bird.png" alt="FlappyBird"><br>
+        <b>🐦 Flappy Bird</b>
+      </a>
+    </td>
+  </tr>
+</table>
 <br>
 
 ### Languages and Tools
