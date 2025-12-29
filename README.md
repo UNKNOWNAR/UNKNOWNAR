@@ -140,3 +140,8 @@
 </div>
 <br>
 
+<div align="center">
+  <img alt="Arinjay's Github Stats" src="https://github-readme-stats.vercel.app/api?username=unknownar&show_icons=true&theme=radical&hide_border=true" height="180px"/>
+  <img alt="Top Languages used" src="https://github-readme-stats.vercel.app/api/top-langs/?username=unknownar&layout=compact&theme=radical&hide_border=true" height="180px"/>
+</div>
+<br>
