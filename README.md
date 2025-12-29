@@ -33,6 +33,7 @@
 
 <h1 align="center">Selected Projects</h1>
 
+<div align="center">
 <table width="100%">
   <tr>
     <td align="center" valign="top" width="33%">
@@ -81,6 +82,7 @@
     </td>
   </tr>
 </table>
+</div>
 <br>
 
 <h3 align="center">Languages and Tools</h3>
