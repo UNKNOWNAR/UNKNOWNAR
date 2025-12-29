@@ -37,41 +37,47 @@
   <tr>
     <td align="center" width="33%">
       <a href="https://github.com/UNKNOWNAR/Hospital-Management-App">
-        <img width="50%" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-hospital-hospital-flaticons-lineal-color-flat-icons-2.png" alt="Hospital App"><br>
-        <b>🏥 Hospital Management App</b>
+        <img src="https://img.shields.io/badge/Hospital_App-2ea44f?style=for-the-badge&logo=github&logoColor=white" alt="Hospital App" />
       </a>
+      <br>
+      <b>🏥 Patient & Doctor Mgmt System</b>
     </td>
     <td align="center" width="33%">
       <a href="https://github.com/UNKNOWNAR/ResearchBoT-EquityResearchTool">
-        <img width="50%" src="https://img.icons8.com/color/64/research.png" alt="ResearchBot"><br>
-        <b>📊 ResearchBoT Equity Tool</b>
+        <img src="https://img.shields.io/badge/Research_Bot-0366d6?style=for-the-badge&logo=python&logoColor=white" alt="ResearchBot" />
       </a>
+      <br>
+      <b>📊 Equity Research AI Tool</b>
     </td>
     <td align="center" width="33%">
       <a href="https://github.com/UNKNOWNAR/Electronics-Store-Q-A-System">
-       <img width="50%" src="https://img.icons8.com/fluency/64/shop.png" alt="Store Q&A"><br>
-        <b>🛒 Electronics Store Q&A</b>
+        <img src="https://img.shields.io/badge/Store_Q&A-ff69b4?style=for-the-badge&logo=dialogflow&logoColor=white" alt="Electronics Store" />
       </a>
+      <br>
+      <b>🛒 AI Q&A System</b>
     </td>
   </tr>
   <tr>
     <td align="center" width="33%">
       <a href="https://github.com/UNKNOWNAR/LLMQuizer">
-       <img width="50%" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-quiz-online-education-flaticons-lineal-color-flat-icons.png" alt="LLM Quizer"><br>
-        <b>🤖 LLM Quizer</b>
+        <img src="https://img.shields.io/badge/LLM_Quizer-orange?style=for-the-badge&logo=openai&logoColor=white" alt="LLM Quizer" />
       </a>
+      <br>
+      <b>🤖 AI-Powered Quiz Gen</b>
     </td>
     <td align="center" width="33%">
       <a href="https://github.com/UNKNOWNAR/GridX-TicTacToe">
-       <img width="50%" src="https://img.icons8.com/color/64/tic-tac-toe.png" alt="TicTacToe"><br>
-        <b>❌⭕ GridX TicTacToe</b>
+        <img src="https://img.shields.io/badge/GridX_Toe-000000?style=for-the-badge&logo=unity&logoColor=white" alt="TicTacToe" />
       </a>
+      <br>
+      <b>❌⭕ Advanced TicTacToe</b>
     </td>
     <td align="center" width="33%">
       <a href="https://github.com/UNKNOWNAR/FlappyBird">
-        <img width="50%" src="https://img.icons8.com/color/64/bird.png" alt="FlappyBird"><br>
-        <b>🐦 Flappy Bird</b>
+        <img src="https://img.shields.io/badge/Flappy_Bird-fdd835?style=for-the-badge&logo=android&logoColor=black" alt="FlappyBird" />
       </a>
+      <br>
+      <b>🐦 Android Game Clone</b>
     </td>
   </tr>
 </table>
