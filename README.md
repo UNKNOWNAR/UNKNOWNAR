@@ -34,14 +34,14 @@
 <h1 align="center">Selected Projects</h1>
 
 <div align="center">
-  <a href="https://github.com/UNKNOWNAR/Hospital-Management-App"><img src="https://github-readme-stats.vercel.app/api/pin/?username=UNKNOWNAR&repo=Hospital-Management-App&show_icons=true&theme=radical" ></a>
-  <a href="https://github.com/UNKNOWNAR/ResearchBoT-EquityResearchTool"><img src="https://github-readme-stats.vercel.app/api/pin/?username=UNKNOWNAR&repo=ResearchBoT-EquityResearchTool&show_icons=true&theme=radical" ></a>
+  <a href="https://github.com/UNKNOWNAR/Hospital-Management-App"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=Hospital-Management-App&show_icons=true&theme=radical" ></a>
+  <a href="https://github.com/UNKNOWNAR/ResearchBoT-EquityResearchTool"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=ResearchBoT-EquityResearchTool&show_icons=true&theme=radical" ></a>
   <br>
-  <a href="https://github.com/UNKNOWNAR/Electronics-Store-Q-A-System"><img src="https://github-readme-stats.vercel.app/api/pin/?username=UNKNOWNAR&repo=Electronics-Store-Q-A-System&show_icons=true&theme=radical" ></a>
-  <a href="https://github.com/UNKNOWNAR/LLMQuizer"><img src="https://github-readme-stats.vercel.app/api/pin/?username=UNKNOWNAR&repo=LLMQuizer&show_icons=true&theme=radical" ></a>
+  <a href="https://github.com/UNKNOWNAR/Electronics-Store-Q-A-System"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=Electronics-Store-Q-A-System&show_icons=true&theme=radical" ></a>
+  <a href="https://github.com/UNKNOWNAR/LLMQuizer"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=LLMQuizer&show_icons=true&theme=radical" ></a>
   <br>
-  <a href="https://github.com/UNKNOWNAR/GridX-TicTacToe"><img src="https://github-readme-stats.vercel.app/api/pin/?username=UNKNOWNAR&repo=GridX-TicTacToe&show_icons=true&theme=radical" ></a>
-  <a href="https://github.com/UNKNOWNAR/FlappyBird"><img src="https://github-readme-stats.vercel.app/api/pin/?username=UNKNOWNAR&repo=FlappyBird&show_icons=true&theme=radical" ></a>
+  <a href="https://github.com/UNKNOWNAR/GridX-TicTacToe"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=GridX-TicTacToe&show_icons=true&theme=radical" ></a>
+  <a href="https://github.com/UNKNOWNAR/FlappyBird"><img src="https://github-readme-stats.vercel.app/api/pin/?username=unknownar&repo=FlappyBird&show_icons=true&theme=radical" ></a>
 </div>
 <br>
 
