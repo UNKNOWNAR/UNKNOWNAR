@@ -2,7 +2,7 @@
 <h3 align="center">Aspiring AI & Software Engineer | Data Science Undergrad</h3>
 
 <p align="center">
-  <img src="image_2.png" alt="Arinjay's Tech Stack Banner" width="100%" />
+  <img src="github_banner.png" alt="Arinjay's Tech Stack Banner" width="100%" />
 </p>
 
 -----
