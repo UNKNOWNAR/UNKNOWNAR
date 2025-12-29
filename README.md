@@ -42,31 +42,45 @@
 ### Languages and Tools
 
 <p align="center">
-  
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/python/python-ar21.svg" alt="Python"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/java/java-ar21.svg" alt="Java"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/isocpp/isocpp-ar21.svg" alt="C++"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-ar21.svg" alt="HTML5"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/w3_css/w3_css-ar21.svg" alt="CSS3"></code>
-  <br>
-   <code><img width="12%" src="https://www.vectorlogo.zone/logos/pytorch/pytorch-ar21.svg" alt="PyTorch"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-ar21.svg" alt="TensorFlow"></code>
-  <code><img width="12%" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="ScikitLearn"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/numpy/numpy-ar21.svg" alt="NumPy"></code>
-  <code><img width="12%" src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="Pandas"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/opencv/opencv-ar21.svg" alt="OpenCV"></code>
-   <br>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-ar21.svg" alt="Flask"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/fastapi/fastapi-ar21.svg" alt="FastAPI"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/springio/springio-ar21.svg" alt="Spring Boot"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg" alt="React"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/postgresql/postgresql-ar21.svg" alt="PostgreSQL"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg" alt="MongoDB"></code>
-   <br>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/docker/docker-ar21.svg" alt="Docker"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-ar21.svg" alt="Kubernetes"></code>
-  <code><img width="12%" src="https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg" alt="Git"></code>
- 
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" title="Python">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" title="Java">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++" title="C++">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" title="HTML5">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" title="CSS3">
+  <br><br>
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" title="PyTorch">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" title="TensorFlow">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" alt="ScikitLearn" title="ScikitLearn">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="NumPy" title="NumPy">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" title="Pandas">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/opencv/opencv-original.svg" alt="OpenCV" title="OpenCV">
+  <br><br>
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" alt="Flask" title="Flask">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="FastAPI" title="FastAPI">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg" alt="Spring Boot" title="Spring Boot">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" title="React">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" title="PostgreSQL">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" title="MongoDB">
+  <br><br>
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" title="Docker">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" title="Kubernetes">
+  &nbsp;
+  <img height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" title="Git">
 </p>
 
 -----
