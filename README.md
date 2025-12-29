@@ -16,11 +16,11 @@
 
 ### 👨🏻‍💻 &nbsp;About Me
 
-💡 &nbsp; [cite_start]I am an aspiring AI & Software Engineer with a rigorous dual-degree in Engineering and Data Science from Jadavpur University and IIT Madras[cite: 6, 19, 22].
+💡 &nbsp; I am an AI/ML enthusiast and open-source contributor, currently pursuing degrees from **Jadavpur University**. Passionate about leveraging ML and deep learning to solve real-world problems, I have interned with **SETV Global**, contributed to impactful hackathons, and earned recognition as a **Hacktoberfest Supercontributor**.
 
-[cite_start]🌱 &nbsp;I have hands-on experience in developing, training, and deploying deep learning models (CNNs, YOLO) for Computer Vision and NLP[cite: 7].\
-[cite_start]✍️ &nbsp;I possess proven ability to build full-stack web applications and manage complex database schemas[cite: 8].\
-[cite_start]💬 &nbsp;I am seeking to leverage my skills in machine learning and backend development to contribute to innovative AI solutions[cite: 9].
+🌱 &nbsp; With strong foundations in **electronics and data science**, I thrive in collaborative environments where innovation, research, and technology meet. My hands-on projects span **facial intelligence, news analytics, RAG systems**, and **web applications**—and I am eager to tackle challenges from vision modeling to NLP.
+
+🚀 &nbsp; I seek opportunities that allow me to combine my technical expertise, creativity, and leadership skills to deliver high-impact solutions. Let’s connect if you share an interest in advancing AI, open-source, or transformative digital technologies!
 
 -----
 ### 📫 &nbsp; How to reach me:
