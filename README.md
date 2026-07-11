@@ -1,18 +1,15 @@
 <div align="center">
-
-<!-- ASCII Art Hero -->
-<img src="ascii_art.svg" alt="ASCII Art Portrait" width="100%" />
-
+<table>
+  <tr>
+    <td valign="top" width="50%">
+      <img src="ascii_art.svg" alt="ASCII Art Portrait" width="100%" />
+    </td>
+    <td valign="top" width="50%">
+      <img src="terminal_info.svg" alt="Terminal Info" width="100%" />
+    </td>
+  </tr>
+</table>
 </div>
-
-<br>
-
-<!-- Terminal Info Panel -->
-<div align="center">
-<img src="terminal_info.svg" alt="Terminal Info" width="100%" />
-</div>
-
-<br>
 
 -----
 
