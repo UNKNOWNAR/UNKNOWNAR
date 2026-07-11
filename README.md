@@ -1,14 +1,5 @@
 <div align="center">
-<table>
-  <tr>
-    <td valign="top" width="50%">
-      <img src="ascii_art.svg" alt="ASCII Art Portrait" width="100%" />
-    </td>
-    <td valign="top" width="50%">
-      <img src="terminal_info.svg" alt="Terminal Info" width="100%" />
-    </td>
-  </tr>
-</table>
+<img src="terminal_hero.svg" alt="Terminal Profile" width="100%" />
 </div>
 
 -----
