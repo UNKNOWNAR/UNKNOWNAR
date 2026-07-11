@@ -71,6 +71,10 @@ def generate_combined_svg():
         [("  [*] AWS AI for Bharat | Finalist", TEXT_COLOR)],
         [("  [*] Google Cloud Arcade Legend Tier", TEXT_COLOR)],
         [],
+        [("$ ", ACCENT_COLOR), ("cat ", HIGHLIGHT_COLOR), ("connect.txt", ACCENT_COLOR)],
+        [("  LinkedIn ", TEXT_COLOR), (": ", "#30363d"), ("amiarinjaysarkar", ACCENT_COLOR)],
+        [("  Email    ", TEXT_COLOR), (": ", "#30363d"), ("amiarinjaysarkar@gmail.com", ACCENT_COLOR)],
+        [],
         [("$ ", ACCENT_COLOR), ("_", HIGHLIGHT_COLOR)],
     ]
 
