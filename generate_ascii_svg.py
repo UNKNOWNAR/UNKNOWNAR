@@ -219,17 +219,8 @@ def generate_combined_svg():
         for color, text in tokens:
             if isinstance(text, tuple): text = text[0]
             
-            r, g, b = hex_to_rgb(color)
-            brightness = (r * 0.299 + g * 0.587 + b * 0.114)
-            
-            # If it's bright in the original image, it's background -> hide it
-            if brightness > 130:
-                parts.append(f'<tspan fill="{DOT_COLOR}">{html.escape(text)}</tspan>')
-            else:
-                # If it's dark in original, it's the face -> make it bright (white)
-                # Or invert it: nr, ng, nb = 255-r, 255-g, 255-b
-                # Let's just make the face pure white for high contrast
-                parts.append(f'<tspan fill="#ffffff">{html.escape(text)}</tspan>')
+            # Use the original colors for everything! No background removal.
+            parts.append(f'<tspan fill="{color}">{html.escape(text)}</tspan>')
                 
         parts.append('</text>\n')
 
