@@ -260,7 +260,7 @@ def generate_combined_svg():
     left_lines = [
         [("GitHub Stats ", KEY_COLOR), ("-" * 41, SEP_COLOR)],
         format_dots_left("Repos", repos, "Followers", followers),
-        format_dots_left("Contribs", contribs, "Current Streak", c_streak),
+        format_dots_left("Total Commits", "2,116", "Current Streak", c_streak),
         format_dots_left("Longest Streak", l_streak, "Lines of Code", lines_of_code),
         [("", SEP_COLOR)],
         [("Contact ", KEY_COLOR), ("-" * 48, SEP_COLOR)],
