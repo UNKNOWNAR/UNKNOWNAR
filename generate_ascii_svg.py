@@ -1,7 +1,7 @@
 """
 Generate an animated terminal-style SVG for GitHub profile README.
-ASCII art on the left, terminal info on the right — with typing animation.
-GitHub supports CSS @keyframes in SVGs.
+Uses SMIL animations (<animate> tags) which GitHub reliably supports.
+ASCII art on the left, terminal info typing in on the right.
 """
 import html
 import os
@@ -15,7 +15,7 @@ DOT_COLOR = "#151b23"
 
 
 def generate_combined_svg():
-    """Generate an animated terminal SVG with ASCII art left + info right."""
+    """Generate an animated terminal SVG with SMIL animations."""
     input_file = os.path.join(BASEDIR, "ascii_final.txt")
     output_file = os.path.join(BASEDIR, "terminal_hero.svg")
 
@@ -32,8 +32,6 @@ def generate_combined_svg():
     ascii_block_h = int(len(ascii_lines) * ascii_lh)
 
     # --- Info panel content ---
-    # Each line: list of (text, color) tuples
-    # We group lines into "commands" for staggered animation
     info_lines = [
         [("$ ", ACCENT_COLOR), ("whoami", HIGHLIGHT_COLOR)],
         [("  Arinjay Sarkar", HIGHLIGHT_COLOR)],
@@ -94,66 +92,20 @@ def generate_combined_svg():
     content_h = max(ascii_block_h, info_block_h)
     svg_width = pad + ascii_block_w + gap + info_block_w + pad
     svg_height = pad + title_bar_h + content_h + pad
-
-    # Ensure minimum width
     svg_width = max(svg_width, 850)
 
     # --- Animation timing ---
-    # ASCII art fades in first (0-1s), then info lines appear one by one
-    ascii_fade_duration = 1.5
-    line_delay = 0.15  # delay between each info line appearing
-    total_info_lines = len(info_lines)
-    total_anim_time = ascii_fade_duration + total_info_lines * line_delay + 2  # +2s hold
+    ascii_appear = 0.5       # ASCII art appears at 0.5s
+    ascii_dur = 1.0          # fades in over 1s
+    line_delay = 0.18        # each info line appears 0.18s after previous
+    info_start = 1.0         # info lines start appearing at 1s
 
     parts = []
-    parts.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{svg_width}" height="{svg_height}" viewBox="0 0 {svg_width} {svg_height}">\n')
-
-    # --- CSS Animations ---
-    parts.append('  <style>\n')
-
-    # ASCII art fade-in
-    parts.append('''    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    @keyframes slideIn {
-      0% { opacity: 0; transform: translateY(5px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    @keyframes scanline {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100%); }
-    }
-    .ascii-group {
-      animation: fadeIn 2s ease-out forwards;
-      opacity: 0;
-    }
-''')
-
-    # Generate animation classes for each info line
-    for i in range(total_info_lines):
-        delay = ascii_fade_duration + i * line_delay
-        parts.append(f'    .info-line-{i} {{\n')
-        parts.append(f'      animation: slideIn 0.3s ease-out {delay:.2f}s forwards;\n')
-        parts.append(f'      opacity: 0;\n')
-        parts.append(f'    }}\n')
-
-    # Blinking cursor for the last line
-    cursor_delay = ascii_fade_duration + (total_info_lines - 1) * line_delay
-    parts.append(f'    .cursor {{\n')
-    parts.append(f'      animation: blink 1s step-end {cursor_delay:.2f}s infinite;\n')
-    parts.append(f'      opacity: 0;\n')
-    parts.append(f'    }}\n')
-
-    parts.append('  </style>\n\n')
+    parts.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{svg_width}" height="{svg_height}" viewBox="0 0 {svg_width} {svg_height}">\n\n')
 
     # Background
     parts.append(f'  <rect width="100%" height="100%" fill="{BG_COLOR}" rx="10" ry="10"/>\n')
-    parts.append(f'  <rect x="1" y="1" width="{svg_width-2}" height="{svg_height-2}" fill="none" stroke="#30363d" stroke-width="1" rx="10" ry="10"/>\n')
+    parts.append(f'  <rect x="1" y="1" width="{svg_width-2}" height="{svg_height-2}" fill="none" stroke="#30363d" stroke-width="1" rx="10" ry="10"/>\n\n')
 
     # Terminal title bar
     parts.append(f'  <circle cx="20" cy="16" r="5" fill="#ff5f57"/>\n')
@@ -162,17 +114,19 @@ def generate_combined_svg():
     parts.append(
         f'  <text x="{svg_width // 2}" y="20" '
         f'font-family="Courier New,monospace" font-size="11px" '
-        f'fill="#8b949e" text-anchor="middle">unknownar@github:~$</text>\n'
+        f'fill="#8b949e" text-anchor="middle">unknownar@github:~$</text>\n\n'
     )
 
     # Divider line under title bar
-    parts.append(f'  <line x1="0" y1="{title_bar_h}" x2="{svg_width}" y2="{title_bar_h}" stroke="#30363d" stroke-width="0.5"/>\n')
+    parts.append(f'  <line x1="0" y1="{title_bar_h}" x2="{svg_width}" y2="{title_bar_h}" stroke="#30363d" stroke-width="0.5"/>\n\n')
 
-    # --- ASCII art (left side) — wrapped in animated group ---
+    # --- ASCII art (left side) with SMIL fade-in ---
     ascii_start_x = pad
     ascii_start_y = pad + title_bar_h
 
-    parts.append('  <g class="ascii-group">\n')
+    parts.append(f'  <g opacity="0">\n')
+    parts.append(f'    <animate attributeName="opacity" from="0" to="1" begin="{ascii_appear}s" dur="{ascii_dur}s" fill="freeze"/>\n')
+
     for i, line in enumerate(ascii_lines):
         y = ascii_start_y + i * ascii_lh + ascii_font
 
@@ -201,53 +155,61 @@ def generate_combined_svg():
                 f'xml:space="preserve">{escaped}</text>\n'
             )
             x_pos += len(seg_text) * ascii_cw
+
     parts.append('  </g>\n\n')
 
     # --- Vertical divider ---
     div_x = pad + ascii_block_w + gap // 2
     parts.append(f'  <line x1="{div_x}" y1="{title_bar_h + 10}" x2="{div_x}" y2="{svg_height - 10}" stroke="#30363d" stroke-width="0.5"/>\n\n')
 
-    # --- Info panel (right side) — each line animated ---
+    # --- Info panel (right side) with SMIL line-by-line animation ---
     info_start_x = pad + ascii_block_w + gap
     info_start_y = pad + title_bar_h
 
     for i, line_parts in enumerate(info_lines):
         y = info_start_y + i * info_lh + info_font
         x_pos = info_start_x
+        begin_time = info_start + i * line_delay
+        is_last = (i == len(info_lines) - 1)
 
-        # Check if this is the last line (cursor line)
-        is_cursor_line = (i == total_info_lines - 1)
-
-        css_class = f'info-line-{i}'
-        parts.append(f'  <g class="{css_class}">\n')
+        parts.append(f'  <g opacity="0">\n')
+        parts.append(f'    <animate attributeName="opacity" from="0" to="1" begin="{begin_time:.2f}s" dur="0.2s" fill="freeze"/>\n')
 
         for text, color in line_parts:
             escaped = html.escape(text)
-            extra_class = ''
-            if is_cursor_line and text == '_':
-                extra_class = ' class="cursor"'
-                # Override: cursor blinks independently
-                parts.append(
-                    f'    <text x="{x_pos}" y="{y}" '
-                    f'font-family="Courier New,monospace" '
-                    f'font-size="{info_font}px" '
-                    f'fill="{color}" '
-                    f'class="cursor" '
-                    f'xml:space="preserve">{escaped}</text>\n'
-                )
-            else:
-                parts.append(
-                    f'    <text x="{x_pos}" y="{y}" '
-                    f'font-family="Courier New,monospace" '
-                    f'font-size="{info_font}px" '
-                    f'fill="{color}" '
-                    f'xml:space="preserve">{escaped}</text>\n'
-                )
+            parts.append(
+                f'    <text x="{x_pos}" y="{y}" '
+                f'font-family="Courier New,monospace" '
+                f'font-size="{info_font}px" '
+                f'fill="{color}" '
+                f'xml:space="preserve">{escaped}</text>\n'
+            )
             x_pos += len(text) * info_cw
 
         parts.append(f'  </g>\n')
 
-    parts.append('</svg>\n')
+    # --- Blinking cursor (separate element) ---
+    cursor_begin = info_start + (len(info_lines) - 1) * line_delay + 0.3
+    cursor_y = info_start_y + (len(info_lines) - 1) * info_lh + info_font
+    parts.append(f'\n  <text x="{info_start_x + 2 * info_cw}" y="{cursor_y}" '
+                 f'font-family="Courier New,monospace" font-size="{info_font}px" '
+                 f'fill="{HIGHLIGHT_COLOR}" opacity="0">\n')
+    parts.append(f'    <animate attributeName="opacity" values="0;0;1;1;0;0" '
+                 f'keyTimes="0;{cursor_begin/20:.3f};{(cursor_begin+0.01)/20:.3f};{(cursor_begin+0.5)/20:.3f};{(cursor_begin+0.51)/20:.3f};1" '
+                 f'dur="20s" repeatCount="indefinite"/>\n')
+    parts.append(f'    _\n')
+    parts.append(f'  </text>\n')
+
+    # --- Simpler blinking cursor overlay ---
+    # Override with a clean blink that starts after all lines appear
+    parts.append(f'\n  <!-- Blinking cursor -->\n')
+    parts.append(f'  <rect x="{info_start_x + 2 * info_cw}" y="{cursor_y - info_font + 2}" '
+                 f'width="{info_cw}" height="{info_font + 2}" fill="{HIGHLIGHT_COLOR}" opacity="0">\n')
+    parts.append(f'    <animate attributeName="opacity" values="0;1;0" '
+                 f'dur="1s" begin="{cursor_begin:.2f}s" repeatCount="indefinite"/>\n')
+    parts.append(f'  </rect>\n')
+
+    parts.append('\n</svg>\n')
 
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(''.join(parts))
