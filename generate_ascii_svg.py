@@ -93,7 +93,7 @@ def generate_combined_svg():
     pad = 20
     title_bar_h = 30
     gap = 30
-    content_h = max(ascii_block_h, info_block_h)
+    content_h = max(ascii_block_h + 30, info_block_h)
     svg_width = pad + ascii_block_w + gap + info_block_w + pad
     svg_height = pad + title_bar_h + content_h + pad
     svg_width = max(svg_width, 850)
@@ -159,6 +159,16 @@ def generate_combined_svg():
                 f'xml:space="preserve">{escaped}</text>\n'
             )
             x_pos += len(seg_text) * ascii_cw
+
+    # Add name under ASCII art
+    name_y = ascii_start_y + len(ascii_lines) * ascii_lh + 20
+    name_x = ascii_start_x + (ascii_block_w / 2)
+    parts.append(
+        f'    <text x="{name_x}" y="{name_y}" '
+        f'font-family="Courier New,monospace" '
+        f'font-size="16px" font-weight="bold" '
+        f'fill="{HIGHLIGHT_COLOR}" text-anchor="middle">Arinjay Sarkar</text>\n'
+    )
 
     parts.append('  </g>\n\n')
 
