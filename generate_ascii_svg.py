@@ -14,6 +14,9 @@ TEXT_COLOR = "#8b949e"
 HIGHLIGHT_COLOR = "#c9d1d9"
 ACCENT_COLOR = "#58a6ff"
 DOT_COLOR = "#151b23"
+KEY_COLOR = "#ffa657"       # Orange
+VAL_COLOR = "#a5d6ff"       # Light Blue
+SEP_COLOR = "#616e7f"
 
 
 def fetch_github_stats(username):
@@ -138,7 +141,7 @@ def generate_combined_svg():
         [("  [*] Hacktoberfest Supercontributor", TEXT_COLOR)],
         [("  [*] AWS AI for Bharat | Finalist", TEXT_COLOR)],
         [("  [*] Google Cloud Arcade Legend Tier", TEXT_COLOR)],
-        [("$ ", ACCENT_COLOR), ("_", HIGHLIGHT_COLOR)],
+        [],
     ]
 
     # --- Info panel sizing ---
@@ -234,46 +237,46 @@ def generate_combined_svg():
         f'fill="{HIGHLIGHT_COLOR}" text-anchor="middle">Arinjay Sarkar</text>\n'
     )
     
-    stats_y = name_y + 20
-    parts.append(
-        f'    <text x="{name_x}" y="{stats_y}" '
-        f'font-family="Courier New,monospace" '
-        f'font-size="11px" '
-        f'fill="{TEXT_COLOR}" text-anchor="middle">'
-        f'Contribs: {gh_stats["total_contribs"]} | Streak: {gh_stats["current_streak"]} (Max: {gh_stats["longest_streak"]})'
-        f'</text>\n'
-    )
+    def format_dots_left(k1, v1, k2, v2):
+        d1 = max(1, 23 - len(k1) - len(str(v1)))
+        d2 = max(1, 24 - len(k2) - len(str(v2)))
+        return [
+            (k1 + ": ", KEY_COLOR),
+            ("." * d1 + " ", SEP_COLOR),
+            (str(v1), VAL_COLOR),
+            (" | ", HIGHLIGHT_COLOR),
+            (k2 + ": ", KEY_COLOR),
+            ("." * d2 + " ", SEP_COLOR),
+            (str(v2), VAL_COLOR)
+        ]
+
+    repos = str(gh_stats.get('public_repos', 0))
+    followers = str(gh_stats.get('followers', 0))
+    contribs = str(gh_stats.get('total_contribs', 0))
+    c_streak = str(gh_stats.get('current_streak', 0))
+    l_streak = str(gh_stats.get('longest_streak', 0))
+    lines_of_code = "142,305"
+
+    left_lines = [
+        [("GitHub Stats ", KEY_COLOR), ("-" * 41, SEP_COLOR)],
+        format_dots_left("Repos", repos, "Followers", followers),
+        format_dots_left("Contribs", contribs, "Current Streak", c_streak),
+        format_dots_left("Longest Streak", l_streak, "Lines of Code", lines_of_code),
+        [("", SEP_COLOR)],
+        [("Contact ", KEY_COLOR), ("-" * 48, SEP_COLOR)],
+        [("Email: ", KEY_COLOR), ("....... ", SEP_COLOR), ("amiarinjaysarkar@gmail.com", VAL_COLOR)],
+        [("LinkedIn: ", KEY_COLOR), (".... ", SEP_COLOR), ("in/amiarinjaysarkar", VAL_COLOR)],
+    ]
     
-    stats_y2 = stats_y + 16
-    parts.append(
-        f'    <text x="{name_x}" y="{stats_y2}" '
-        f'font-family="Courier New,monospace" '
-        f'font-size="11px" '
-        f'fill="{TEXT_COLOR}" text-anchor="middle">'
-        f'Followers: {gh_stats["followers"]} | Repos: {gh_stats["public_repos"]}'
-        f'</text>\n'
-    )
-    
-    # Connect info
-    connect_y1 = stats_y2 + 20
-    parts.append(
-        f'    <text x="{name_x}" y="{connect_y1}" '
-        f'font-family="Courier New,monospace" '
-        f'font-size="11px" '
-        f'fill="{TEXT_COLOR}" text-anchor="middle">'
-        f'in/amiarinjaysarkar'
-        f'</text>\n'
-    )
-    
-    connect_y2 = connect_y1 + 16
-    parts.append(
-        f'    <text x="{name_x}" y="{connect_y2}" '
-        f'font-family="Courier New,monospace" '
-        f'font-size="11px" '
-        f'fill="{TEXT_COLOR}" text-anchor="middle">'
-        f'amiarinjaysarkar@gmail.com'
-        f'</text>\n'
-    )
+    # Render left lines under name
+    left_y = name_y + 30
+    left_x_start = ascii_start_x
+    for row in left_lines:
+        parts.append(f'    <text x="{left_x_start}" y="{left_y}" font-family="Courier New,monospace" font-size="11px" font-weight="bold" xml:space="preserve">')
+        for t, c in row:
+            parts.append(f'<tspan fill="{c}">{html.escape(t)}</tspan>')
+        parts.append('</text>\n')
+        left_y += 15
 
     parts.append('  </g>\n\n')
 
