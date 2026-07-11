@@ -1,0 +1,9 @@
+[2026-06] Research Intern @ Indian Statistical Institute (ISI), Kolkata
+  - Built high-throughput LLM evaluation pipeline using vLLM and 4-bit quantization
+  - Engineered 10-condition RAG benchmark over 119 TREC queries
+  - Discovered positional bias manifests as increased hallucination (4.0% → 12.1%)
+
+[2025-08] Software Engineering Intern (AI/ML) @ SETV Global
+  - Built and deployed scalable REST APIs using Flask with sub-200ms latency
+  - Designed cascaded fetal ultrasound pipeline with EfficientNet-B0 + YOLOv11 (98.66% mAP50)
+  - Engineered end-to-end PDF-to-VectorDB pipeline with Azure Blob Storage
