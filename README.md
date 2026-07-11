@@ -67,19 +67,3 @@
 </table>
 </div>
 
------
-
-<h1 align="center">Github Stats</h1>
-
-<div align="center">
-  
-[![GitHub streak](https://github-readme-streak-stats.herokuapp.com/?user=unknownar&theme=github-dark-blue&hide_border=true&background=0D1117&stroke=30363d&ring=58a6ff&fire=58a6ff&currStreakLabel=c9d1d9&sideLabels=8b949e&currStreakNum=c9d1d9&sideNums=8b949e&dates=8b949e)](https://github.com/DenverCoder1/github-readme-streak-stats)
-
-</div>
-<br>
-
-<div align="center">
-  <img alt="Arinjay's Github Stats" src="https://github-readme-stats.vercel.app/api?username=unknownar&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58a6ff&text_color=8b949e&icon_color=58a6ff" height="180px"/>
-  <img alt="Top Languages used" src="https://github-readme-stats.vercel.app/api/top-langs/?username=unknownar&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58a6ff&text_color=8b949e" height="180px"/>
-</div>
-<br>

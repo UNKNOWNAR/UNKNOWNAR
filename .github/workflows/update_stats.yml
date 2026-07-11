@@ -1,0 +1,30 @@
+name: Update Terminal SVG Stats
+
+on:
+  schedule:
+    - cron: '0 0,12 * * *' # Run twice a day (every 12 hours)
+  workflow_dispatch: # Allow manual trigger from the Actions tab
+
+jobs:
+  update-svg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Generate SVG
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python generate_ascii_svg.py
+          
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add terminal_hero.svg
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update GitHub stats in SVG [skip ci]" && git push)

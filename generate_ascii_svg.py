@@ -5,6 +5,8 @@ ASCII art on the left, terminal info typing in on the right.
 """
 import html
 import os
+import json
+import urllib.request
 
 BASEDIR = os.path.dirname(__file__)
 BG_COLOR = "#0d1117"
@@ -14,20 +16,86 @@ ACCENT_COLOR = "#58a6ff"
 DOT_COLOR = "#151b23"
 
 
+def fetch_github_stats(username):
+    """Fetch user stats from GitHub API and scrape contribution graph for streaks."""
+    stats = {"followers": 0, "public_repos": 0, "total_contribs": "0", "current_streak": 0, "longest_streak": 0}
+    try:
+        # Fetch basic stats
+        url = f"https://api.github.com/users/{username}"
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        token = os.environ.get("GITHUB_TOKEN")
+        is_ci = os.environ.get("GITHUB_ACTIONS") == "true"
+        if token and is_ci:
+            req.add_header("Authorization", f"token {token}")
+        with urllib.request.urlopen(req) as response:
+            data = json.loads(response.read().decode())
+            stats["followers"] = data.get("followers", 0)
+            stats["public_repos"] = data.get("public_repos", 0)
+            
+        # Scrape contribution graph
+        import re
+        contrib_url = f"https://github.com/users/{username}/contributions"
+        req_contrib = urllib.request.Request(contrib_url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req_contrib) as response:
+            html = response.read().decode()
+            match = re.search(r'(\d+(?:,\d+)?)\s+contributions\s+in\s+the\s+last\s+year', html, re.IGNORECASE)
+            if match:
+                stats["total_contribs"] = match.group(1)
+                
+            tooltips = re.findall(r'<tool-tip [^>]*>([^<]+)</tool-tip>', html)
+            counts = []
+            for tip in tooltips:
+                m = re.match(r'^(No|\d+) contributions? on ', tip)
+                if m:
+                    counts.append(0 if m.group(1) == "No" else int(m.group(1)))
+            
+            temp_streak = 0
+            longest_streak = 0
+            for count in counts:
+                if count > 0:
+                    temp_streak += 1
+                    if temp_streak > longest_streak:
+                        longest_streak = temp_streak
+                else:
+                    temp_streak = 0
+            stats["longest_streak"] = longest_streak
+            
+            curr = 0
+            for count in reversed(counts):
+                if count > 0:
+                    curr += 1
+                else:
+                    break
+            stats["current_streak"] = curr
+
+    except Exception as e:
+        print(f"Failed to fetch GitHub stats: {e}")
+    return stats
+
+
 def generate_combined_svg():
     """Generate an animated terminal SVG with SMIL animations."""
-    input_file = os.path.join(BASEDIR, "ascii_final.txt")
+    gh_stats = fetch_github_stats("unknownar")
+    
+    input_file = os.path.join(BASEDIR, ".html")
     output_file = os.path.join(BASEDIR, "terminal_hero.svg")
 
-    # --- Read ASCII art ---
+    # --- Read Colored Binary HTML art ---
     with open(input_file, "r", encoding="utf-8") as f:
-        ascii_lines = [line.rstrip('\n').rstrip('\r') for line in f.readlines()]
+        html_content = f.read()
+    
+    import re
+    match = re.search(r'<pre id="tiresult"[^>]*>(.*?)</pre>', html_content, re.DOTALL)
+    if not match:
+        ascii_lines = [line for line in html_content.split('\n') if '<b style="color:' in line or '<b style=color' in line]
+    else:
+        ascii_lines = match.group(1).strip().split('\n')
 
     # --- ASCII art sizing ---
     ascii_font = 5.2
     ascii_lh = 6.8
     ascii_cw = 3.1
-    ascii_max_len = max(len(line) for line in ascii_lines)
+    ascii_max_len = max(len(re.sub(r'<[^>]+>', '', line)) for line in ascii_lines)
     ascii_block_w = int(ascii_max_len * ascii_cw)
     ascii_block_h = int(len(ascii_lines) * ascii_lh)
 
@@ -70,11 +138,6 @@ def generate_combined_svg():
         [("  [*] Hacktoberfest Supercontributor", TEXT_COLOR)],
         [("  [*] AWS AI for Bharat | Finalist", TEXT_COLOR)],
         [("  [*] Google Cloud Arcade Legend Tier", TEXT_COLOR)],
-        [],
-        [("$ ", ACCENT_COLOR), ("cat ", HIGHLIGHT_COLOR), ("connect.txt", ACCENT_COLOR)],
-        [("  LinkedIn ", TEXT_COLOR), (": ", "#30363d"), ("amiarinjaysarkar", ACCENT_COLOR)],
-        [("  Email    ", TEXT_COLOR), (": ", "#30363d"), ("amiarinjaysarkar@gmail.com", ACCENT_COLOR)],
-        [],
         [("$ ", ACCENT_COLOR), ("_", HIGHLIGHT_COLOR)],
     ]
 
@@ -93,7 +156,7 @@ def generate_combined_svg():
     pad = 20
     title_bar_h = 30
     gap = 30
-    content_h = max(ascii_block_h + 30, info_block_h)
+    content_h = max(ascii_block_h + 90, info_block_h)
     svg_width = pad + ascii_block_w + gap + info_block_w + pad
     svg_height = pad + title_bar_h + content_h + pad
     svg_width = max(svg_width, 850)
@@ -131,36 +194,46 @@ def generate_combined_svg():
     parts.append(f'  <g opacity="0">\n')
     parts.append(f'    <animate attributeName="opacity" from="0" to="1" begin="{ascii_appear}s" dur="{ascii_dur}s" fill="freeze"/>\n')
 
+    def hex_to_rgb(hx):
+        hx = hx.lstrip('#')
+        if len(hx) != 6: return 0,0,0
+        try:
+            return int(hx[0:2], 16), int(hx[2:4], 16), int(hx[4:6], 16)
+        except:
+            return 0,0,0
+
+    def rgb_to_hex(r, g, b):
+        return f"#{r:02x}{g:02x}{b:02x}"
+
     for i, line in enumerate(ascii_lines):
         y = ascii_start_y + i * ascii_lh + ascii_font
+        parts.append(f'    <text x="{ascii_start_x}" y="{y}" font-family="Courier New,monospace" font-size="{ascii_font}px" font-weight="bold" xml:space="preserve">')
+        
+        tokens = re.findall(r'<b\s+style=["\']?color:([^>"\']+)["\']?>([^<]+)</b>', line)
+        if not tokens:
+            tokens = re.findall(r'<b\s+style=color:([^>"\']+)>(([^<]+))</b>', line)
+            if not tokens:
+                text_only = re.sub(r'<[^>]+>', '', line)
+                parts.append(html.escape(text_only))
+                
+        for color, text in tokens:
+            if isinstance(text, tuple): text = text[0]
+            
+            r, g, b = hex_to_rgb(color)
+            brightness = (r * 0.299 + g * 0.587 + b * 0.114)
+            
+            # If it's bright in the original image, it's background -> hide it
+            if brightness > 130:
+                parts.append(f'<tspan fill="{DOT_COLOR}">{html.escape(text)}</tspan>')
+            else:
+                # If it's dark in original, it's the face -> make it bright (white)
+                # Or invert it: nr, ng, nb = 255-r, 255-g, 255-b
+                # Let's just make the face pure white for high contrast
+                parts.append(f'<tspan fill="#ffffff">{html.escape(text)}</tspan>')
+                
+        parts.append('</text>\n')
 
-        segments = []
-        current_segment = ""
-        current_is_dot = None
-        for ch in line:
-            is_dot = (ch == '.')
-            if is_dot != current_is_dot and current_segment:
-                segments.append((current_segment, current_is_dot))
-                current_segment = ""
-            current_segment += ch
-            current_is_dot = is_dot
-        if current_segment:
-            segments.append((current_segment, current_is_dot))
-
-        x_pos = ascii_start_x
-        for seg_text, is_dot in segments:
-            color = DOT_COLOR if is_dot else TEXT_COLOR
-            escaped = html.escape(seg_text)
-            parts.append(
-                f'    <text x="{x_pos}" y="{y}" '
-                f'font-family="Courier New,monospace" '
-                f'font-size="{ascii_font}px" '
-                f'fill="{color}" '
-                f'xml:space="preserve">{escaped}</text>\n'
-            )
-            x_pos += len(seg_text) * ascii_cw
-
-    # Add name under ASCII art
+    # Add name and stats under ASCII art
     name_y = ascii_start_y + len(ascii_lines) * ascii_lh + 20
     name_x = ascii_start_x + (ascii_block_w / 2)
     parts.append(
@@ -168,6 +241,47 @@ def generate_combined_svg():
         f'font-family="Courier New,monospace" '
         f'font-size="16px" font-weight="bold" '
         f'fill="{HIGHLIGHT_COLOR}" text-anchor="middle">Arinjay Sarkar</text>\n'
+    )
+    
+    stats_y = name_y + 20
+    parts.append(
+        f'    <text x="{name_x}" y="{stats_y}" '
+        f'font-family="Courier New,monospace" '
+        f'font-size="11px" '
+        f'fill="{TEXT_COLOR}" text-anchor="middle">'
+        f'Contribs: {gh_stats["total_contribs"]} | Streak: {gh_stats["current_streak"]} (Max: {gh_stats["longest_streak"]})'
+        f'</text>\n'
+    )
+    
+    stats_y2 = stats_y + 16
+    parts.append(
+        f'    <text x="{name_x}" y="{stats_y2}" '
+        f'font-family="Courier New,monospace" '
+        f'font-size="11px" '
+        f'fill="{TEXT_COLOR}" text-anchor="middle">'
+        f'Followers: {gh_stats["followers"]} | Repos: {gh_stats["public_repos"]}'
+        f'</text>\n'
+    )
+    
+    # Connect info
+    connect_y1 = stats_y2 + 20
+    parts.append(
+        f'    <text x="{name_x}" y="{connect_y1}" '
+        f'font-family="Courier New,monospace" '
+        f'font-size="11px" '
+        f'fill="{TEXT_COLOR}" text-anchor="middle">'
+        f'in/amiarinjaysarkar'
+        f'</text>\n'
+    )
+    
+    connect_y2 = connect_y1 + 16
+    parts.append(
+        f'    <text x="{name_x}" y="{connect_y2}" '
+        f'font-family="Courier New,monospace" '
+        f'font-size="11px" '
+        f'fill="{TEXT_COLOR}" text-anchor="middle">'
+        f'amiarinjaysarkar@gmail.com'
+        f'</text>\n'
     )
 
     parts.append('  </g>\n\n')
