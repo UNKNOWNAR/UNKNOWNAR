@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="467" height="554" viewBox="0 0 467 554">
+  <rect width="100%" height="100%" fill="#0d1117" rx="8" ry="8"/>
+  <rect x="1" y="1" width="465" height="552" fill="none" stroke="#30363d" stroke-width="1" rx="8" ry="8"/>
+  <circle cx="18" cy="14" r="5" fill="#ff5f57"/>
+  <circle cx="34" cy="14" r="5" fill="#febc2e"/>
+  <circle cx="50" cy="14" r="5" fill="#28c840"/>
+  <text x="233" y="18" font-family="Courier New,monospace" font-size="11px" fill="#8b949e" text-anchor="middle">unknownar@github ~ %</text>
+  <text x="25" y="52" font-family="Courier New,monospace" font-size="12px" fill="#58a6ff" xml:space="preserve">$ </text>
+  <text x="39.4" y="52" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">cat </text>
+  <text x="68.2" y="52" font-family="Courier New,monospace" font-size="12px" fill="#58a6ff" xml:space="preserve">about.txt</text>
+  <text x="25" y="88" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Name           </text>
+  <text x="133.0" y="88" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="88" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">Arinjay Sarkar</text>
+  <text x="25" y="106" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Role           </text>
+  <text x="133.0" y="106" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="106" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">AI &amp; Software Engineer</text>
+  <text x="25" y="124" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">University     </text>
+  <text x="133.0" y="124" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="124" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">Jadavpur University</text>
+  <text x="25" y="142" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Location       </text>
+  <text x="133.0" y="142" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="142" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">India</text>
+  <text x="25" y="178" font-family="Courier New,monospace" font-size="12px" fill="#58a6ff" xml:space="preserve">$ </text>
+  <text x="39.4" y="178" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">cat </text>
+  <text x="68.2" y="178" font-family="Courier New,monospace" font-size="12px" fill="#58a6ff" xml:space="preserve">skills.txt</text>
+  <text x="25" y="214" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Languages      </text>
+  <text x="133.0" y="214" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="214" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">Python, Java, C++, JavaScript, SQL</text>
+  <text x="25" y="232" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">AI/ML          </text>
+  <text x="133.0" y="232" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="232" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">PyTorch, TensorFlow, Scikit-Learn, OpenCV</text>
+  <text x="25" y="250" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Data           </text>
+  <text x="133.0" y="250" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="250" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">NumPy, Pandas, Matplotlib</text>
+  <text x="25" y="268" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Backend        </text>
+  <text x="133.0" y="268" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="268" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">Flask, FastAPI, Spring Boot</text>
+  <text x="25" y="286" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Frontend       </text>
+  <text x="133.0" y="286" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="286" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">React, HTML5, CSS3</text>
+  <text x="25" y="304" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Databases      </text>
+  <text x="133.0" y="304" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="304" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">PostgreSQL, MongoDB</text>
+  <text x="25" y="322" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">DevOps         </text>
+  <text x="133.0" y="322" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">: </text>
+  <text x="147.4" y="322" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">Docker, Kubernetes, Git</text>
+  <text x="25" y="358" font-family="Courier New,monospace" font-size="12px" fill="#58a6ff" xml:space="preserve">$ </text>
+  <text x="39.4" y="358" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">cat </text>
+  <text x="68.2" y="358" font-family="Courier New,monospace" font-size="12px" fill="#58a6ff" xml:space="preserve">interests.txt</text>
+  <text x="25" y="394" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">&gt;&gt; </text>
+  <text x="46.6" y="394" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Computer Vision &amp; Facial Intelligence</text>
+  <text x="25" y="412" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">&gt;&gt; </text>
+  <text x="46.6" y="412" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">NLP &amp; RAG Systems</text>
+  <text x="25" y="430" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">&gt;&gt; </text>
+  <text x="46.6" y="430" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Deep Learning Research</text>
+  <text x="25" y="448" font-family="Courier New,monospace" font-size="12px" fill="#30363d" xml:space="preserve">&gt;&gt; </text>
+  <text x="46.6" y="448" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">Open Source Contributions</text>
+  <text x="25" y="484" font-family="Courier New,monospace" font-size="12px" fill="#58a6ff" xml:space="preserve">$ </text>
+  <text x="39.4" y="484" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">echo </text>
+  <text x="75.4" y="484" font-family="Courier New,monospace" font-size="12px" fill="#58a6ff" xml:space="preserve">$STATUS</text>
+  <text x="25" y="502" font-family="Courier New,monospace" font-size="12px" fill="#8b949e" xml:space="preserve">   Hacktoberfest Supercontributor | SETV Global Intern</text>
+  <text x="25" y="538" font-family="Courier New,monospace" font-size="12px" fill="#58a6ff" xml:space="preserve">$ </text>
+  <text x="39.4" y="538" font-family="Courier New,monospace" font-size="12px" fill="#c9d1d9" xml:space="preserve">_</text>
+</svg>
