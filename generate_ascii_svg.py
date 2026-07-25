@@ -168,7 +168,7 @@ def generate_combined_svg():
     ascii_appear = 0.5       # ASCII art appears at 0.5s
     ascii_dur = 1.0          # fades in over 1s
     line_delay = 0.18        # each info line appears 0.18s after previous
-    info_start = 1.0         # info lines start appearing at 1s
+    info_start = 3.0         # info lines start appearing at 3s
 
     parts = []
     parts.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{svg_width}" height="{svg_height}" viewBox="0 0 {svg_width} {svg_height}">\n\n')
@@ -208,8 +208,15 @@ def generate_combined_svg():
     def rgb_to_hex(r, g, b):
         return f"#{r:02x}{g:02x}{b:02x}"
 
+    ascii_delay = 0.02
+    
     for i, line in enumerate(ascii_lines):
         y = ascii_start_y + i * ascii_lh + ascii_font
+        begin_time = 0.2 + i * ascii_delay
+        
+        parts.append(f'  <g opacity="0">\n')
+        parts.append(f'    <animate attributeName="opacity" from="0" to="1" begin="{begin_time:.2f}s" dur="0.1s" fill="freeze"/>\n')
+        
         parts.append(f'    <text x="{ascii_start_x}" y="{y}" font-family="Courier New,monospace" font-size="{ascii_font}px" font-weight="bold" xml:space="preserve">')
         
         tokens = re.findall(r'<b\s+style=["\']?color:([^>"\']+)["\']?>([^<]+)</b>', line)
@@ -221,21 +228,25 @@ def generate_combined_svg():
                 
         for color, text in tokens:
             if isinstance(text, tuple): text = text[0]
-            
-            # Use the original colors for everything! No background removal.
             parts.append(f'<tspan fill="{color}">{html.escape(text)}</tspan>')
                 
         parts.append('</text>\n')
+        parts.append('  </g>\n')
 
     # Add name and stats under ASCII art
     name_y = ascii_start_y + len(ascii_lines) * ascii_lh + 20
     name_x = ascii_start_x + (ascii_block_w / 2)
+    name_begin = 0.2 + len(ascii_lines) * ascii_delay + 0.1
+    
+    parts.append(f'  <g opacity="0">\n')
+    parts.append(f'    <animate attributeName="opacity" from="0" to="1" begin="{name_begin:.2f}s" dur="0.2s" fill="freeze"/>\n')
     parts.append(
         f'    <text x="{name_x}" y="{name_y}" '
         f'font-family="Courier New,monospace" '
         f'font-size="16px" font-weight="bold" '
         f'fill="{HIGHLIGHT_COLOR}" text-anchor="middle">Arinjay Sarkar</text>\n'
     )
+    parts.append(f'  </g>\n')
     
     def format_dots_left(k1, v1, k2, v2):
         d1 = max(1, 23 - len(k1) - len(str(v1)))
@@ -271,11 +282,17 @@ def generate_combined_svg():
     # Render left lines under name
     left_y = name_y + 30
     left_x_start = ascii_start_x
-    for row in left_lines:
+    left_begin = name_begin + 0.2
+    
+    for i, row in enumerate(left_lines):
+        line_begin = left_begin + i * 0.1
+        parts.append(f'  <g opacity="0">\n')
+        parts.append(f'    <animate attributeName="opacity" from="0" to="1" begin="{line_begin:.2f}s" dur="0.2s" fill="freeze"/>\n')
         parts.append(f'    <text x="{left_x_start}" y="{left_y}" font-family="Courier New,monospace" font-size="11px" font-weight="bold" xml:space="preserve">')
         for t, c in row:
             parts.append(f'<tspan fill="{c}">{html.escape(t)}</tspan>')
         parts.append('</text>\n')
+        parts.append('  </g>\n')
         left_y += 15
 
     parts.append('  </g>\n\n')
