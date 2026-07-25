@@ -168,7 +168,7 @@ def generate_combined_svg():
     ascii_appear = 0.5       # ASCII art appears at 0.5s
     ascii_dur = 1.0          # fades in over 1s
     line_delay = 0.18        # each info line appears 0.18s after previous
-    info_start = 3.0         # info lines start appearing at 3s
+    info_start = 5.0         # info lines start appearing at 5s
 
     parts = []
     parts.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{svg_width}" height="{svg_height}" viewBox="0 0 {svg_width} {svg_height}">\n\n')
@@ -208,11 +208,11 @@ def generate_combined_svg():
     def rgb_to_hex(r, g, b):
         return f"#{r:02x}{g:02x}{b:02x}"
 
-    ascii_delay = 0.02
+    ascii_delay = 0.04
     
     for i, line in enumerate(ascii_lines):
         y = ascii_start_y + i * ascii_lh + ascii_font
-        begin_time = 0.2 + i * ascii_delay
+        begin_time = 1.0 + i * ascii_delay
         
         parts.append(f'  <g opacity="0">\n')
         parts.append(f'    <animate attributeName="opacity" from="0" to="1" begin="{begin_time:.2f}s" dur="0.1s" fill="freeze"/>\n')
@@ -236,7 +236,7 @@ def generate_combined_svg():
     # Add name and stats under ASCII art
     name_y = ascii_start_y + len(ascii_lines) * ascii_lh + 20
     name_x = ascii_start_x + (ascii_block_w / 2)
-    name_begin = 0.2 + len(ascii_lines) * ascii_delay + 0.1
+    name_begin = 1.0 + len(ascii_lines) * ascii_delay + 0.2
     
     parts.append(f'  <g opacity="0">\n')
     parts.append(f'    <animate attributeName="opacity" from="0" to="1" begin="{name_begin:.2f}s" dur="0.2s" fill="freeze"/>\n')
