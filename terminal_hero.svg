@@ -274,7 +274,7 @@
   </g>
   <g opacity="0">
     <animate attributeName="opacity" from="0" to="1" begin="1.80s" dur="0.2s" fill="freeze"/>
-    <text x="20" y="543.4" font-family="Courier New,monospace" font-size="11px" font-weight="bold" xml:space="preserve"><tspan fill="#ffa657">Repos: </tspan><tspan fill="#616e7f">................ </tspan><tspan fill="#a5d6ff">24</tspan><tspan fill="#c9d1d9"> | </tspan><tspan fill="#ffa657">Followers: </tspan><tspan fill="#616e7f">.............. </tspan><tspan fill="#a5d6ff">5</tspan></text>
+    <text x="20" y="543.4" font-family="Courier New,monospace" font-size="11px" font-weight="bold" xml:space="preserve"><tspan fill="#ffa657">Repos: </tspan><tspan fill="#616e7f">................ </tspan><tspan fill="#a5d6ff">25</tspan><tspan fill="#c9d1d9"> | </tspan><tspan fill="#ffa657">Followers: </tspan><tspan fill="#616e7f">.............. </tspan><tspan fill="#a5d6ff">5</tspan></text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" from="0" to="1" begin="1.90s" dur="0.2s" fill="freeze"/>
