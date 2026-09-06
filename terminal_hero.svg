@@ -278,7 +278,7 @@
   </g>
   <g opacity="0">
     <animate attributeName="opacity" from="0" to="1" begin="1.90s" dur="0.2s" fill="freeze"/>
-    <text x="20" y="558.4" font-family="Courier New,monospace" font-size="11px" font-weight="bold" xml:space="preserve"><tspan fill="#ffa657">Total Commits: </tspan><tspan fill="#616e7f">..... </tspan><tspan fill="#a5d6ff">2,116</tspan><tspan fill="#c9d1d9"> | </tspan><tspan fill="#ffa657">Current Streak: </tspan><tspan fill="#616e7f">......... </tspan><tspan fill="#a5d6ff">0</tspan></text>
+    <text x="20" y="558.4" font-family="Courier New,monospace" font-size="11px" font-weight="bold" xml:space="preserve"><tspan fill="#ffa657">Total Commits: </tspan><tspan fill="#616e7f">..... </tspan><tspan fill="#a5d6ff">2,116</tspan><tspan fill="#c9d1d9"> | </tspan><tspan fill="#ffa657">Current Streak: </tspan><tspan fill="#616e7f">......... </tspan><tspan fill="#a5d6ff">1</tspan></text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" from="0" to="1" begin="2.00s" dur="0.2s" fill="freeze"/>
